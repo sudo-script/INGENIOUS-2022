@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="reg.css">
+    <link rel="stylesheet" href="reg2.css">
+    <body>
+      <div class="cursor"></div>
+
+    <section class="main">
+      <h1></h1>
+    </section>
+
+    <script type="text/javascript">
+    const cursor = document.querySelector(".cursor");
+    var timeout;
+
+    
+    document.addEventListener("mousemove", (e) => {
+      let x = e.pageX;
+      let y = e.pageY;
+
+      cursor.style.top = y + "px";
+      cursor.style.left = x + "px";
+      cursor.style.display = "block";
+
+      function mouseStopped(){
+        cursor.style.display = "none";
+      }
+      clearTimeout(timeout);
+      timeout = setTimeout(mouseStopped, 15000);
+    });
+
+    document.addEventListener("mouseout", () => {
+      cursor.style.display = "none";
+    });
+    </script>
+
+       
+        <!-- <h1>Please Fill in your details</h1> -->
+      
+        <form>
+          <ul class="items"></ul>
+          <fieldset class="username enable">
+            <div class="icon left"><i class="user"></i></div>
+            <input type="text" name="username" placeholder="Username"/>
+            <div class="icon right button"><i class="arrow"></i></div>
+          </fieldset>
+          <fieldset class="Number">
+            <div class="icon left"><i class="user"></i></div>
+            <input type="text" name="Phone number" placeholder="Number"/>
+            <div class="icon right button"><i class="arrow"></i></div>
+          </fieldset>
+          <fieldset class="email">
+            <div class="icon left"><i class="letter"></i></div>
+            <input type="mail" name="email" placeholder="Email"/>
+            <div class="icon right button"><i class="arrow"></i></div>
+          </fieldset>
+          <!-- <fieldset class="password">
+            <div class="icon left"><i class="lock"></i></div>
+            <input type="password" name="password" placeholder="Password"/>
+            <div class="icon right button"><i class="arrow"></i></div>
+          </fieldset> -->
+          <fieldset class="thanks">
+            
+            <p>We will contact you soon</p>
+            
+          </fieldset>
+        </form>
+        <script>
+            function init() {
+  
+  for (var i = 0; i < count; i++) {
+    var ul = document.querySelector('ul.items'),
+        li = document.createElement("li");
+
+    ul.appendChild(li);
+  }
+  
+  ul.firstChild.classList.add('active');
+}
+
+function next(target) {
+  var input = target.previousElementSibling;
+  
+  // Check if input is empty
+  if (input.value === '') {
+    body.classList.add('error');
+  } else {
+    body.classList.remove('error');
+    
+    var enable = document.querySelector('form fieldset.enable'),
+        nextEnable = enable.nextElementSibling;
+    enable.classList.remove('enable');
+    enable.classList.add('disable');
+    nextEnable.classList.add('enable');
+    
+    // Switch active class on left list
+    var active = document.querySelector('ul.items li.active'),
+        nextActive = active.nextElementSibling;
+    active.classList.remove('active');
+    nextActive.classList.add('active');
+  }
+}
+
+function keyDown(event) {
+  var key = event.keyCode,
+      target = document.querySelector('fieldset.enable .button');
+  if (key == 13 || key == 9) next(target);
+}
+
+var body = document.querySelector('body'),
+    form = document.querySelector('form'),
+    count = form.querySelectorAll('fieldset').length;
+
+window.onload = init;
+document.body.onmouseup = function (event) {
+    var target = event.target || event.toElement;
+    if (target.classList.contains("button")) next(target);
+};
+document.addEventListener("keydown", keyDown, false);
+</script>
+    </body>
+</html>

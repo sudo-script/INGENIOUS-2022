@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+
+    <head>
+        <link rel="stylesheet" href="tiles.css">
+    </head>
+    
+    <h1>Events to be organised this year</h1>
+    <div id="grid">
+      <div class="smallgrid">
+        <div class="desc">
+          <div class="textHolder">
+            <h3>001: Movie Marathon</h3>
+            <h2>Movie Marathon</h2>
+            <p>[29 July /2022]</p>
+          </div>
+        </div>
+        <div class="photo"><img src="images/sized.jpg"></div>
+      </div>
+      <div class="smallgrid">
+        <div class="desc">
+          <div class="textHolder">
+          <h3>002: Soical Responsibility</h3>
+          <h2>Soical Responsibility</h2>
+          <p>[4 August / 2022]</p>
+          </div>
+        </div>
+        <div class="photo"><img src="images/resp.jpg"></div>
+      </div>
+      <div class="smallgrid">
+        <div class="desc">
+          <div class="textHolder">
+          <h3>003: Art Exhibition</h3>
+          <h2>Coloring the career</h2>
+          <p>[12 August / 2022]</p></div>
+        </div>
+        <div class="photo"><img src="images/art.jpg"></div>
+      </div>
+      <div class="smallgrid">
+        <div class="desc">
+          <div class="textHolder">
+          <h3>004: Blood Donation</h3>
+          <h2>Be the reason for someone's heartbeat</h2>
+          <p>[18 August / 2022]</p></div>
+        </div>
+        <div class="photo"><img src="images/blood.jpg"></div>
+      </div>
+      <div class="smallgrid">
+        <div class="desc">
+          <div class="textHolder">
+          <h3>005: Science Exhibition</h3>
+          <h2>Innovating the Future</h2>
+          <p>[4 September / 2022]</p>
+        </div>
+        </div>
+        <div class="photo"><img src="images/innovation.jpeg"></div>
+      </div>
+      <div class="smallgrid">
+        <div class="desc">
+          <div class="textHolder">
+            <h3>006: Mime Act</h3>
+            <h2>Let the actions say your words</h2>
+            <p>[15 September/ 2022]</p>
+          </div>
+        </div>
+        <div class="photo"><img src="images/mime.jpg"></div>
+      </div>
+      <div class="smallgrid">
+        <div class="desc">
+          <div class="textHolder">
+    <h3>007: Movie Making</h3>
+    <h2>Record your thoughts into film</h2>
+    <p>[7 October / 2022]</p>
+        </div>
+        </div>
+        <div class="photo"><img src="images/film.jpg"></div>
+      </div>
+      <div class="smallgrid">
+        <div class="desc">
+          <div class="textHolder">
+    <h3>008: Photography Competition</h3>
+    <h2>Capture the moment</h2>
+    <p>[2 November / 2022]</p>
+        </div>
+        </div>
+        <div class="photo"><img src="images/photography.jpg"></div>
+      </div>
+      <div class="smallgrid">
+        <div class="desc">
+          <div class="textHolder">
+    <h3>009: Bonnie "Prince" Billy</h3>
+    <h2>I See a Darkness</h2>
+    <p>[1999 / Palace]</p>
+        </div>
+        </div>
+        <div class="photo"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/09.jpg"></div>
+      </div>
+      <div class="smallgrid">
+        <div class="desc">
+          <div class="textHolder">
+    
+<script>
+    function alternate(){
+  colsno = window.getComputedStyle(document.getElementById("grid")).gridTemplateColumns.split(' ').length;
+  smallgrids = document.getElementsByClassName("smallgrid");
+  for(i=0;i<smallgrids.length;i++){
+    thisrow = Math.floor(i/colsno);
+    thiscol = i%colsno;
+    if((thisrow+thiscol)%2==1){
+      smallgrids[i].setAttribute('class', 'smallgrid even');
+    }else{
+      smallgrids[i].setAttribute('class', 'smallgrid odd');
+    }
+  }
+}
+
+window.onload = alternate();
+window.addEventListener("resize", alternate);
+</script>
+</html>
